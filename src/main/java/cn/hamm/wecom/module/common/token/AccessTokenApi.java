@@ -1,4 +1,4 @@
-package cn.hamm.wecom.module.common.access.token;
+package cn.hamm.wecom.module.common.token;
 
 import cn.hamm.wecom.base.AbstractWeComApi;
 import cn.hamm.wecom.base.WeComResponse;

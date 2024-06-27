@@ -7,12 +7,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
 /**
- * <h1>ApiDomainIpApi</h1>
+ * <h1>CallbackIpApi</h1>
  *
  * @author Hamm.cn
- * @see <a href="https://developer.work.weixin.qq.com/document/path/90239">获取企业微信接口IP段</a>
+ * @see <a href="https://developer.work.weixin.qq.com/document/path/90239">获取企业微信回调IP段</a>
  */
-public class ApiDomainIpApi extends AbstractWeComApi<ApiDomainIpApi.Response, ApiDomainIpApi> {
+public class CallbackIpApi extends AbstractWeComApi<CallbackIpApi.Response, CallbackIpApi> {
     @Override
     public String apiUrl() {
         return String.format("get_api_domain_ip?access_token=%s", getAccessToken());
