@@ -1,21 +1,21 @@
 package cn.hamm.wecom.module.common.ip;
 
-import cn.hamm.wecom.base.AbstractWeComApi;
+import cn.hamm.wecom.base.AbstractWeComRequest;
 import cn.hamm.wecom.base.WeComResponse;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
 /**
- * <h1>CallbackIpApi</h1>
+ * <h1>DomainIpRequest</h1>
  *
  * @author Hamm.cn
- * @see <a href="https://developer.work.weixin.qq.com/document/path/90239">获取企业微信回调IP段</a>
+ * @see <a href="https://developer.work.weixin.qq.com/document/path/92521">获取企业微信接口IP段</a>
  */
-public class CallbackIpApi extends AbstractWeComApi<CallbackIpApi.Response, CallbackIpApi> {
+public class DomainIpRequest extends AbstractWeComRequest<DomainIpRequest.Response, DomainIpRequest> {
     @Override
     public String apiUrl() {
-        return String.format("get_api_domain_ip?access_token=%s", getAccessToken());
+        return String.format("getcallbackip?access_token=%s", getAccessToken());
     }
 
     public static class Response extends WeComResponse<Response> {

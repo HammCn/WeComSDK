@@ -15,7 +15,7 @@ import java.lang.reflect.Type;
  * @author Hamm.cn
  */
 @SuppressWarnings("unchecked")
-public abstract class AbstractWeComApi<RES extends WeComResponse<RES>, REQ extends AbstractWeComApi<RES, REQ>> {
+public abstract class AbstractWeComRequest<RES extends WeComResponse<RES>, REQ extends AbstractWeComRequest<RES, REQ>> {
 
     public static final String QUESTION_MARK = "?";
 

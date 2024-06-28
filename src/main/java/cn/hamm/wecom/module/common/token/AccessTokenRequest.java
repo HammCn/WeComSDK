@@ -1,15 +1,15 @@
 package cn.hamm.wecom.module.common.token;
 
-import cn.hamm.wecom.base.AbstractWeComApi;
+import cn.hamm.wecom.base.AbstractWeComRequest;
 import cn.hamm.wecom.base.WeComResponse;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * <h1>AccessTokenApi</h1>
+ * <h1>AccessTokenRequest</h1>
  *
  * @author Hamm.cn
  */
-public class AccessTokenApi extends AbstractWeComApi<AccessTokenApi.Response, AccessTokenApi> {
+public class AccessTokenRequest extends AbstractWeComRequest<AccessTokenRequest.Response, AccessTokenRequest> {
 
     @Override
     public String apiUrl() {
@@ -23,7 +23,7 @@ public class AccessTokenApi extends AbstractWeComApi<AccessTokenApi.Response, Ac
         return corpId;
     }
 
-    public AccessTokenApi setCorpId(String corpId) {
+    public AccessTokenRequest setCorpId(String corpId) {
         this.corpId = corpId;
         return this;
     }
@@ -35,7 +35,7 @@ public class AccessTokenApi extends AbstractWeComApi<AccessTokenApi.Response, Ac
         return corpSecret;
     }
 
-    public AccessTokenApi setCorpSecret(String corpSecret) {
+    public AccessTokenRequest setCorpSecret(String corpSecret) {
         this.corpSecret = corpSecret;
         return this;
     }
