@@ -6,7 +6,6 @@ import cn.hamm.wecom.exception.WeComException;
 import cn.hamm.wecom.util.HttpUtil;
 import cn.hamm.wecom.util.JsonUtil;
 
-import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
