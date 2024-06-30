@@ -9,7 +9,20 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @SuppressWarnings("unchecked")
 public class WeComResponse<T extends WeComResponse<T>> {
-    @JsonProperty("errcode")
+    /**
+     * <h2>错误码</h2>
+     */
+    public static final String ERROR_CODE = "errcode";
+
+    /**
+     * <h2>错误信息</h2>
+     */
+    public static final String ERROR_MESSAGE = "errmsg";
+
+    /**
+     * <h2>错误代码</h2>
+     */
+    @JsonProperty(ERROR_CODE)
     private int errorCode;
 
     public int getErrorCode() {
@@ -21,7 +34,10 @@ public class WeComResponse<T extends WeComResponse<T>> {
         return (T) this;
     }
 
-    @JsonProperty("errmsg")
+    /**
+     * <h2>错误信息</h2>
+     */
+    @JsonProperty(ERROR_MESSAGE)
     private String errorMessage;
 
     public String getErrorMessage() {
@@ -33,6 +49,11 @@ public class WeComResponse<T extends WeComResponse<T>> {
         return (T) this;
     }
 
+    /**
+     * <h2>是否成功</h2>
+     *
+     * @return boolean
+     */
     public final boolean isSuccess() {
         return WeCom.SUCCESS_CODE == errorCode;
     }

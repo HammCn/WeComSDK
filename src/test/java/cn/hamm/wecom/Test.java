@@ -1,7 +1,7 @@
 package cn.hamm.wecom;
 
 import cn.hamm.wecom.exception.WeComException;
-import cn.hamm.wecom.module.basic.app.GetAppRequest;
+import cn.hamm.wecom.module.basic.message.MessageSendRequest;
 import cn.hamm.wecom.module.common.ip.CallbackIpRequest;
 import cn.hamm.wecom.module.common.token.AccessTokenRequest;
 import cn.hamm.wecom.module.common.ip.DomainIpRequest;
@@ -12,10 +12,11 @@ public class Test {
 
     public static void main(String... args) throws WeComException {
 //        System.out.println(getAccessToken());
-        final String accessToken = "nY1susZyQ2DwhyZHllMXLhPZcu8M4-I12UeoZFwDzvFUaXZNthgClem8VF0I8XDjmq2UUl9FF2866fi1x2TSmmYRPkzlUih4zxnSCRpZicObi1Om2r4SFzIyHScBiQErJxeCMoHRLJfUVJpx7Gt2ERnWCfjhrjmdsO13muAm0YdzUKBx2jWmL6iPBkwhBB6wd48f-xfCttbfQZtb1cOTHg";
+        final String accessToken = "K4pa4hQfJtN7NI9bsqvl54VFg8PmVZfiaftc1vUCtZGwoTn5kY0UJ7WMQjo9D-FFYTL8701XfK9c4j1gH6R8btrDBW8C9pJ6FB3hgCf6x1Toh-KKdbp7L48q5TvYKAma0fQNq4YGKFRO1JlIl51ZRA1eVxstkf5XLEe3_7MGoKBXug6Hkztqjnwffhwj4eYQ0z4CwYIxAO4gczP6n6AtgA";
+        final String agentId = "1000003";
 
 
-        GetAppRequest.Response response = new GetAppRequest().setAccessToken(accessToken).setAgentId("ww6e2676bed57406d2").request();
+        MessageSendRequest.Response response = new MessageSendRequest().setAccessToken(accessToken).request();
         System.out.println(response);
 
     }

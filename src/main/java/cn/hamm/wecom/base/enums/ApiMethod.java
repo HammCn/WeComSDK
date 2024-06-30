@@ -1,7 +1,7 @@
 package cn.hamm.wecom.base.enums;
 
 /**
- * <h1>ApiMethod</h1>
+ * <h1>请求方式</h1>
  *
  * @author Hamm.cn
  */

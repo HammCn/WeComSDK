@@ -10,17 +10,15 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
 /**
- * <h1>AbstractWeComApi</h1>
+ * <h1>企业微信请求抽象类</h1>
  *
  * @author Hamm.cn
  */
 @SuppressWarnings("unchecked")
 public abstract class AbstractWeComRequest<RES extends WeComResponse<RES>, REQ extends AbstractWeComRequest<RES, REQ>> {
-
-    public static final String QUESTION_MARK = "?";
-
-    public static final String AMPERSAND = "&";
-
+    /**
+     * <h2>AccessToken</h2>
+     */
     private String accessToken;
 
     public String getAccessToken() {
@@ -54,16 +52,20 @@ public abstract class AbstractWeComRequest<RES extends WeComResponse<RES>, REQ e
      * @return 响应对象
      */
     public final RES request() throws WeComException, WeComApiException {
-        RES response;
-        String body;
+        final RES response;
+        final String body;
         try {
-            String url = WeCom.WECOM_API_PREFIX + apiUrl();
+            final String url = WeCom.WECOM_API_PREFIX + apiUrl();
+            WeCom.debug("请求地址", url);
             switch (apiMethod()) {
                 case GET:
                     body = HttpUtil.get(url);
                     break;
                 case POST:
-                    body = HttpUtil.post(url, JsonUtil.toString(this));
+                    final String request = JsonUtil.toString(this);
+                    WeCom.debug("请求包体", request);
+                    body = HttpUtil.post(url, request);
+                    WeCom.debug("响应包体", body);
                     break;
                 default:
                     throw new WeComException("不支持的ApiMethod");

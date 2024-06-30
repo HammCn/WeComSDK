@@ -1,6 +1,7 @@
 package cn.hamm.wecom.module.common.token;
 
 import cn.hamm.wecom.base.AbstractWeComRequest;
+import cn.hamm.wecom.base.WeCom;
 import cn.hamm.wecom.base.WeComResponse;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -9,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  *
  * @author Hamm.cn
  */
+@SuppressWarnings("unused")
 public class AccessTokenRequest extends AbstractWeComRequest<AccessTokenRequest.Response, AccessTokenRequest> {
 
     @Override
@@ -16,7 +18,7 @@ public class AccessTokenRequest extends AbstractWeComRequest<AccessTokenRequest.
         return String.format("gettoken?corpid=%s&corpsecret=%s", getCorpId(), getCorpSecret());
     }
 
-    @JsonProperty("corpid")
+    @JsonProperty(WeCom.Param.CORP_ID)
     private String corpId;
 
     public String getCorpId() {
@@ -28,7 +30,7 @@ public class AccessTokenRequest extends AbstractWeComRequest<AccessTokenRequest.
         return this;
     }
 
-    @JsonProperty("corpsecret")
+    @JsonProperty(WeCom.Param.CORP_SECRET)
     private String corpSecret;
 
     public String getCorpSecret() {
@@ -41,7 +43,7 @@ public class AccessTokenRequest extends AbstractWeComRequest<AccessTokenRequest.
     }
 
     public static class Response extends WeComResponse<Response> {
-        @JsonProperty("access_token")
+        @JsonProperty(WeCom.Param.ACCESS_TOKEN)
         private String accessToken;
 
         public String getAccessToken() {
@@ -53,7 +55,7 @@ public class AccessTokenRequest extends AbstractWeComRequest<AccessTokenRequest.
             return this;
         }
 
-        @JsonProperty("expires_in")
+        @JsonProperty(WeCom.Param.EXPIRES_IN)
         private int expiresIn;
 
         public int getExpiresIn() {

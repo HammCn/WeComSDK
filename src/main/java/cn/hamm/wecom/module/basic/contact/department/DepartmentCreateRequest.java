@@ -1,6 +1,7 @@
 package cn.hamm.wecom.module.basic.contact.department;
 
 import cn.hamm.wecom.base.AbstractWeComRequest;
+import cn.hamm.wecom.base.WeCom;
 import cn.hamm.wecom.base.WeComResponse;
 import cn.hamm.wecom.base.enums.ApiMethod;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -11,7 +12,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @author Hamm.cn
  * @see <a href="https://developer.work.weixin.qq.com/document/path/90205">创建部门</a>
  */
+@SuppressWarnings("unused")
 public class DepartmentCreateRequest extends AbstractWeComRequest<DepartmentCreateRequest.Response, DepartmentCreateRequest> {
+
+    public static final String NAME_EN = "name_en";
+
     @Override
     public String apiUrl() {
         return String.format("department/create?access_token=%s", getAccessToken());
@@ -33,7 +38,7 @@ public class DepartmentCreateRequest extends AbstractWeComRequest<DepartmentCrea
         return this;
     }
 
-    @JsonProperty("name_en")
+    @JsonProperty(NAME_EN)
     private String nameEn;
 
     public String getNameEn() {
@@ -45,7 +50,7 @@ public class DepartmentCreateRequest extends AbstractWeComRequest<DepartmentCrea
         return this;
     }
 
-    @JsonProperty("parentid")
+    @JsonProperty(WeCom.Param.PARENT_ID)
     private Integer parentId;
 
     public Integer getParentId() {
