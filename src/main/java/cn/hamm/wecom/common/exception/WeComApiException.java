@@ -1,6 +1,6 @@
-package cn.hamm.wecom.exception;
+package cn.hamm.wecom.common.exception;
 
-import cn.hamm.wecom.base.WeCom;
+import cn.hamm.wecom.common.WeCom;
 
 /**
  * <h1>WeComApiException</h1>
@@ -19,14 +19,14 @@ public class WeComApiException extends RuntimeException {
      */
     private final int code;
 
-    public int getCode() {
-        return code;
-    }
-
     /**
      * <h2>响应包体</h2>
      */
     private final String response;
+
+    public int getCode() {
+        return code;
+    }
 
     public String getResponse() {
         return response;

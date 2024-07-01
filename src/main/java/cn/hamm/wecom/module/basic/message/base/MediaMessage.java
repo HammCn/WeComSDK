@@ -1,6 +1,6 @@
 package cn.hamm.wecom.module.basic.message.base;
 
-import cn.hamm.wecom.base.WeCom;
+import cn.hamm.wecom.common.constant.WeComAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @SuppressWarnings({"unchecked", "unused"})
 public class MediaMessage<T extends MediaMessage<T>> {
-    @JsonProperty(WeCom.Param.MEDIA_ID)
+    @JsonProperty(WeComAlias.MEDIA_ID)
     private String mediaId;
 
     public String getMediaId() {

@@ -1,5 +1,7 @@
-package cn.hamm.wecom.base;
+package cn.hamm.wecom.common;
 
+import cn.hamm.wecom.common.constant.WeComAlias;
+import cn.hamm.wecom.common.constant.WeComConstant;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -7,23 +9,30 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  *
  * @author Hamm.cn
  */
-@SuppressWarnings("unchecked")
+@SuppressWarnings({"unchecked", "unused"})
 public class WeComResponse<T extends WeComResponse<T>> {
-    /**
-     * <h2>错误码</h2>
-     */
-    public static final String ERROR_CODE = "errcode";
-
-    /**
-     * <h2>错误信息</h2>
-     */
-    public static final String ERROR_MESSAGE = "errmsg";
 
     /**
      * <h2>错误代码</h2>
      */
-    @JsonProperty(ERROR_CODE)
+    @JsonProperty(WeComAlias.ERROR_CODE)
     private int errorCode;
+
+    /**
+     * <h2>错误信息</h2>
+     */
+    @JsonProperty(WeComAlias.ERROR_MESSAGE)
+    private String errorMessage;
+
+    /**
+     * <h2>是否成功</h2>
+     *
+     * @return boolean
+     */
+    public final boolean isSuccess() {
+        return WeComConstant.SUCCESS_CODE == errorCode;
+    }
+
 
     public int getErrorCode() {
         return errorCode;
@@ -34,12 +43,6 @@ public class WeComResponse<T extends WeComResponse<T>> {
         return (T) this;
     }
 
-    /**
-     * <h2>错误信息</h2>
-     */
-    @JsonProperty(ERROR_MESSAGE)
-    private String errorMessage;
-
     public String getErrorMessage() {
         return errorMessage;
     }
@@ -47,14 +50,5 @@ public class WeComResponse<T extends WeComResponse<T>> {
     public T setErrorMessage(String errorMessage) {
         this.errorMessage = errorMessage;
         return (T) this;
-    }
-
-    /**
-     * <h2>是否成功</h2>
-     *
-     * @return boolean
-     */
-    public final boolean isSuccess() {
-        return WeCom.SUCCESS_CODE == errorCode;
     }
 }

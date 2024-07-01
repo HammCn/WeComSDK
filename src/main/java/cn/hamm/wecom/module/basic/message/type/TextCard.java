@@ -10,6 +10,10 @@ public class TextCard {
 
     private String title;
 
+    private String description;
+
+    private String url;
+
     public String getTitle() {
         return title;
     }
@@ -19,8 +23,6 @@ public class TextCard {
         return this;
     }
 
-    private String description;
-
     public String getDescription() {
         return description;
     }
@@ -29,8 +31,6 @@ public class TextCard {
         this.description = description;
         return this;
     }
-
-    private String url;
 
     public String getUrl() {
         return url;

@@ -1,8 +1,8 @@
 package cn.hamm.wecom.module.common.ip;
 
-import cn.hamm.wecom.base.AbstractWeComRequest;
-import cn.hamm.wecom.base.WeCom;
-import cn.hamm.wecom.base.WeComResponse;
+import cn.hamm.wecom.common.AbstractWeComRequest;
+import cn.hamm.wecom.common.constant.WeComAlias;
+import cn.hamm.wecom.common.WeComResponse;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
@@ -21,7 +21,7 @@ public class CallbackIpRequest extends AbstractWeComRequest<CallbackIpRequest.Re
     }
 
     public static class Response extends WeComResponse<Response> {
-        @JsonProperty(WeCom.Param.IP_LIST)
+        @JsonProperty(WeComAlias.IP_LIST)
         private List<String> ipList;
 
         public List<String> getIpList() {

@@ -11,6 +11,8 @@ import cn.hamm.wecom.module.basic.message.base.MediaMessage;
 public class Video extends MediaMessage<Video> {
     private String title;
 
+    private String description;
+
     public String getTitle() {
         return title;
     }
@@ -19,8 +21,6 @@ public class Video extends MediaMessage<Video> {
         this.title = title;
         return this;
     }
-
-    private String description;
 
     public String getDescription() {
         return description;

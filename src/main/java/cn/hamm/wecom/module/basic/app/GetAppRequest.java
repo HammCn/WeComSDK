@@ -1,9 +1,9 @@
 package cn.hamm.wecom.module.basic.app;
 
-import cn.hamm.wecom.base.AbstractWeComRequest;
-import cn.hamm.wecom.base.WeCom;
-import cn.hamm.wecom.base.WeComResponse;
-import cn.hamm.wecom.base.enums.ApiMethod;
+import cn.hamm.wecom.common.AbstractWeComRequest;
+import cn.hamm.wecom.common.constant.WeComAlias;
+import cn.hamm.wecom.common.WeComResponse;
+import cn.hamm.wecom.common.enums.WeComApiMethod;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -21,21 +21,12 @@ public class GetAppRequest extends AbstractWeComRequest<GetAppRequest.Response, 
     }
 
     @Override
-    public ApiMethod apiMethod() {
-        return ApiMethod.POST;
+    public WeComApiMethod apiMethod() {
+        return WeComApiMethod.POST;
     }
 
-    @JsonProperty(WeCom.Param.AGENTID)
+    @JsonProperty(WeComAlias.AGENTID)
     private String agentId;
-
-    public String getAgentId() {
-        return agentId;
-    }
-
-    public GetAppRequest setAgentId(String agentId) {
-        this.agentId = agentId;
-        return this;
-    }
 
     public static class Response extends WeComResponse<Response> {
         private Integer id;
@@ -48,5 +39,14 @@ public class GetAppRequest extends AbstractWeComRequest<GetAppRequest.Response, 
             this.id = id;
             return this;
         }
+    }
+
+    public String getAgentId() {
+        return agentId;
+    }
+
+    public GetAppRequest setAgentId(String agentId) {
+        this.agentId = agentId;
+        return this;
     }
 }

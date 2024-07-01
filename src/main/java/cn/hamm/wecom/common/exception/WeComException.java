@@ -1,4 +1,4 @@
-package cn.hamm.wecom.exception;
+package cn.hamm.wecom.common.exception;
 
 /**
  * <h1>WeComException</h1>

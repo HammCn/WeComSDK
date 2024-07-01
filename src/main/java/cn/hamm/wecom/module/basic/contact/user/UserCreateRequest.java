@@ -1,8 +1,8 @@
 package cn.hamm.wecom.module.basic.contact.user;
 
-import cn.hamm.wecom.base.AbstractWeComRequest;
-import cn.hamm.wecom.base.WeComResponse;
-import cn.hamm.wecom.base.enums.ApiMethod;
+import cn.hamm.wecom.common.AbstractWeComRequest;
+import cn.hamm.wecom.common.WeComResponse;
+import cn.hamm.wecom.common.enums.WeComApiMethod;
 
 /**
  * <h1>UserCreateRequest</h1>
@@ -19,8 +19,8 @@ public class UserCreateRequest extends AbstractWeComRequest<UserCreateRequest.Re
     }
 
     @Override
-    public ApiMethod apiMethod() {
-        return ApiMethod.POST;
+    public WeComApiMethod apiMethod() {
+        return WeComApiMethod.POST;
     }
 
     public static class Response extends WeComResponse<Response> {

@@ -1,7 +1,6 @@
 package cn.hamm.wecom.module.basic.message.type;
 
-import cn.hamm.wecom.base.WeCom;
-import cn.hamm.wecom.module.basic.message.MessageSendRequest;
+import cn.hamm.wecom.common.constant.WeComAlias;
 import cn.hamm.wecom.module.basic.message.base.ArticleList;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -17,6 +16,17 @@ public class News extends ArticleList<News, News.Article> {
 
         private String description;
 
+        private String url;
+
+        @JsonProperty(WeComAlias.PIC_URL)
+        private String picUrl;
+
+        @JsonProperty(WeComAlias.APPID)
+        private String appId;
+
+        @JsonProperty(WeComAlias.PAGE_PATH)
+        private String pagePath;
+
         public String getDescription() {
             return description;
         }
@@ -25,8 +35,6 @@ public class News extends ArticleList<News, News.Article> {
             this.description = description;
             return this;
         }
-
-        private String url;
 
         public String getUrl() {
             return url;
@@ -37,9 +45,6 @@ public class News extends ArticleList<News, News.Article> {
             return this;
         }
 
-        @JsonProperty(MessageSendRequest.PIC_URL)
-        private String picUrl;
-
         public String getPicUrl() {
             return picUrl;
         }
@@ -49,9 +54,6 @@ public class News extends ArticleList<News, News.Article> {
             return this;
         }
 
-        @JsonProperty(WeCom.Param.APPID)
-        private String appId;
-
         public String getAppId() {
             return appId;
         }
@@ -60,9 +62,6 @@ public class News extends ArticleList<News, News.Article> {
             this.appId = appId;
             return this;
         }
-
-        @JsonProperty(WeCom.Param.PAGE_PATH)
-        private String pagePath;
 
         public String getPagePath() {
             return pagePath;

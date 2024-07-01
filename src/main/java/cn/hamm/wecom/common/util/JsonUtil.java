@@ -1,4 +1,4 @@
-package cn.hamm.wecom.util;
+package cn.hamm.wecom.common.util;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;

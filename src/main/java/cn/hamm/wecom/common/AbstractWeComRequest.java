@@ -1,10 +1,11 @@
-package cn.hamm.wecom.base;
+package cn.hamm.wecom.common;
 
-import cn.hamm.wecom.base.enums.ApiMethod;
-import cn.hamm.wecom.exception.WeComApiException;
-import cn.hamm.wecom.exception.WeComException;
-import cn.hamm.wecom.util.HttpUtil;
-import cn.hamm.wecom.util.JsonUtil;
+import cn.hamm.wecom.common.constant.WeComConstant;
+import cn.hamm.wecom.common.enums.WeComApiMethod;
+import cn.hamm.wecom.common.exception.WeComApiException;
+import cn.hamm.wecom.common.exception.WeComException;
+import cn.hamm.wecom.common.util.HttpUtil;
+import cn.hamm.wecom.common.util.JsonUtil;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -21,15 +22,6 @@ public abstract class AbstractWeComRequest<RES extends WeComResponse<RES>, REQ e
      */
     private String accessToken;
 
-    public String getAccessToken() {
-        return accessToken;
-    }
-
-    public REQ setAccessToken(String accessToken) {
-        this.accessToken = accessToken;
-        return (REQ) this;
-    }
-
     /**
      * <h2>API地址</h2>
      *
@@ -42,8 +34,8 @@ public abstract class AbstractWeComRequest<RES extends WeComResponse<RES>, REQ e
      *
      * @return API方法
      */
-    public ApiMethod apiMethod() {
-        return ApiMethod.GET;
+    public WeComApiMethod apiMethod() {
+        return WeComApiMethod.GET;
     }
 
     /**
@@ -55,7 +47,7 @@ public abstract class AbstractWeComRequest<RES extends WeComResponse<RES>, REQ e
         final RES response;
         final String body;
         try {
-            final String url = WeCom.WECOM_API_PREFIX + apiUrl();
+            final String url = WeComConstant.WECOM_API_PREFIX + apiUrl();
             WeCom.debug("请求地址", url);
             switch (apiMethod()) {
                 case GET:
@@ -96,5 +88,14 @@ public abstract class AbstractWeComRequest<RES extends WeComResponse<RES>, REQ e
      */
     private Type[] getActualTypeArguments() {
         return ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments();
+    }
+
+    public String getAccessToken() {
+        return accessToken;
+    }
+
+    public REQ setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
+        return (REQ) this;
     }
 }
