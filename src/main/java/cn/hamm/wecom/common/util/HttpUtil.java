@@ -28,8 +28,6 @@ public class HttpUtil {
      * @return Response
      */
     public static String post(String url, String json) {
-        System.out.println(url);
-        System.out.println(json);
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
             HttpPost httpPost = new HttpPost(url);
             StringEntity entity = new StringEntity(json);

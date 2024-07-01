@@ -57,11 +57,11 @@ public abstract class AbstractWeComRequest<RES extends WeComResponse<RES>, REQ e
                     final String request = JsonUtil.toString(this);
                     WeCom.debug("请求包体", request);
                     body = HttpUtil.post(url, request);
-                    WeCom.debug("响应包体", body);
                     break;
                 default:
                     throw new WeComException("不支持的ApiMethod");
             }
+            WeCom.debug("响应包体", body);
             response = JsonUtil.parse(body, getResponseClass());
             if (response.isSuccess()) {
                 return response;
