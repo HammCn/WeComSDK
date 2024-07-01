@@ -22,23 +22,43 @@ public class OpenUserIdToUserIdRequest extends AbstractWeComRequest<OpenUserIdTo
         return String.format("batch/openuserid_to_userid?access_token=%s", getAccessToken());
     }
 
+    /**
+     * <h2><code>open_userid</code>列表</h2>
+     *
+     * @apiNote 最多不超过1000个。必须是<code>source_agentid</code>对应的应用所获取
+     */
     @JsonProperty("open_userid_list")
     private List<String> openUserIdList;
 
+    /**
+     * <h2>企业授权的代开发自建应用或第三方应用的<code>agentid</code></h2>
+     */
     @JsonProperty(WeComAlias.SOURCE_AGENT_ID)
     private Integer sourceAgentId;
 
     public static class Response extends WeComResponse<Response> {
+        /**
+         * <h2>明文<code>userid</code>列表</h2>
+         */
         @JsonProperty(WeComAlias.USERID_LIST)
         private List<UserIdInfo> userIdInfoList;
 
+        /**
+         * <h2>不合法的<code>open_userid</code>列表</h2>
+         */
         @JsonProperty("invalid_open_userid_list")
         private List<String> invalidOpenUserId;
 
         public static class UserIdInfo {
+            /**
+             * <h2>转换成功的<code>open_userid</code></h2>
+             */
             @JsonProperty(WeComAlias.OPEN_USER_ID)
             private String openUserId;
 
+            /**
+             * <h2>转换成功的<code>open_userid</code>对应的<code>userid</code></h2>
+             */
             @JsonProperty(WeComAlias.USER_ID)
             private String userId;
 
@@ -46,18 +66,16 @@ public class OpenUserIdToUserIdRequest extends AbstractWeComRequest<OpenUserIdTo
                 return openUserId;
             }
 
-            public UserIdInfo setOpenUserId(String openUserId) {
+            public void setOpenUserId(String openUserId) {
                 this.openUserId = openUserId;
-                return this;
             }
 
             public String getUserId() {
                 return userId;
             }
 
-            public UserIdInfo setUserId(String userId) {
+            public void setUserId(String userId) {
                 this.userId = userId;
-                return this;
             }
         }
 
@@ -65,18 +83,16 @@ public class OpenUserIdToUserIdRequest extends AbstractWeComRequest<OpenUserIdTo
             return userIdInfoList;
         }
 
-        public Response setUserIdInfoList(List<UserIdInfo> userIdInfoList) {
+        public void setUserIdInfoList(List<UserIdInfo> userIdInfoList) {
             this.userIdInfoList = userIdInfoList;
-            return this;
         }
 
         public List<String> getInvalidOpenUserId() {
             return invalidOpenUserId;
         }
 
-        public Response setInvalidOpenUserId(List<String> invalidOpenUserId) {
+        public void setInvalidOpenUserId(List<String> invalidOpenUserId) {
             this.invalidOpenUserId = invalidOpenUserId;
-            return this;
         }
     }
 

@@ -24,6 +24,7 @@ public class WeComAlias {
     public static final String USERID_LIST = "userid_list";
     public static final String OPEN_USER_ID = "open_userid";
     public static final String USER_ID = "userid";
+    public static final String USER = "user";
     public static final String SOURCE_AGENT_ID = "source_agentid";
     public static final String EXTERNAL_USER_ID = "external_userid";
     public static final String NAME_EN = "name_en";
@@ -40,4 +41,15 @@ public class WeComAlias {
     public static final String TMP_EXTERNAL_USER_ID_LIST = "tmp_external_userid_list";
     public static final String TMP_EXTERNAL_USER_ID = "tmp_external_userid";
     public static final String INVALID_TMP_EXTERNAL_USER_ID_LIST = "invalid_tmp_external_userid_list";
+    public static final String SQUARE_LOGO_URL = "square_logo_url";
+    public static final String ALLOW_USERINFO = "allow_userinfos";
+    public static final String ALLOW_PARTY = "allow_partys";
+    public static final String ALLOW_TAG = "allow_tags";
+    public static final String PARTY_ID = "partyid";
+    public static final String TAG_ID = "tagid";
+    public static final String REDIRECT_DOMAIN = "redirect_domain";
+    public static final String REPORT_LOCATION_FLAG = "report_location_flag";
+    public static final String IS_REPORT_ENTER = "isreportenter";
+    public static final String HOME_URL = "home_url";
+    public static final String CUSTOMIZED_PUBLISH_STATUS = "customized_publish_status";
 }

@@ -18,13 +18,34 @@ public class ThirdExternalUserIdToExternalUserIdRequest extends AbstractWeComReq
         return String.format("externalcontact/from_service_external_userid?access_token=%s", getAccessToken());
     }
 
+    /**
+     * <h2>服务商主体的<code>external_userid</code></h2>
+     *
+     * @apiNote 必须是<code>source_agentid</code>对应的应用所获取
+     */
     @JsonProperty(WeComAlias.EXTERNAL_USER_ID)
     private String externalUserId;
 
+    /**
+     * <h2>企业授权的代开发自建应用或第三方应用的<code>agentid</code></h2>
+     */
     @JsonProperty(WeComAlias.SOURCE_AGENT_ID)
     private Integer sourceAgentId;
 
     public static class Response extends WeComResponse<Response> {
+        /**
+         * <h2>企业主体的<code>external_userid</code></h2>
+         */
+        @JsonProperty(WeComAlias.EXTERNAL_USER_ID)
+        private String externalUserId;
+
+        public String getExternalUserId() {
+            return externalUserId;
+        }
+
+        public void setExternalUserId(String externalUserId) {
+            this.externalUserId = externalUserId;
+        }
     }
 
     public String getExternalUserId() {

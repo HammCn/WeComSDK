@@ -25,28 +25,53 @@ public class DepartmentCreateRequest extends AbstractWeComRequest<DepartmentCrea
         return WeComApiMethod.POST;
     }
 
+    /**
+     * <h2>部门名称</h2>
+     *
+     * @apiNote 同一个层级的部门名称不能重复。长度限制为1~64个UTF-8字符，字符不能包括\:*?"<>｜
+     */
     private String name;
 
+    /**
+     * <h2>英文名称</h2>
+     *
+     * @apiNote 同一个层级的部门名称不能重复。需要在管理后台开启多语言支持才能生效。长度限制为1~64个字符，字符不能包括\:*?"<>｜
+     */
     @JsonProperty(WeComAlias.NAME_EN)
     private String nameEn;
 
+    /**
+     * <h2>父部门id</h2>
+     */
     @JsonProperty(WeComAlias.PARENT_ID)
     private Integer parentId;
 
+    /**
+     * <h2>在父部门中的次序值</h2>
+     *
+     * @apiNote order值大的排序靠前。有效的值范围是[0, 2^32)
+     */
     private Integer order;
 
+    /**
+     * <h2>部门id</h2>
+     *
+     * @apiNote 指定时必须大于1。若不填该参数，将自动生成id
+     */
     private Integer id;
 
     public static class Response extends WeComResponse<Response> {
+        /**
+         * <h2>创建的部门id</h2>
+         */
         private Integer id;
 
         public Integer getId() {
             return id;
         }
 
-        public Response setId(Integer id) {
+        public void setId(Integer id) {
             this.id = id;
-            return this;
         }
     }
 

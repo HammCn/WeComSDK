@@ -28,9 +28,8 @@ public class CallbackIpRequest extends AbstractWeComRequest<CallbackIpRequest.Re
             return ipList;
         }
 
-        public Response setIpList(List<String> ipList) {
+        public void setIpList(List<String> ipList) {
             this.ipList = ipList;
-            return this;
         }
     }
 }

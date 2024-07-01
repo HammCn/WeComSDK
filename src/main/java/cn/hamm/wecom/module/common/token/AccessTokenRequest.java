@@ -35,18 +35,16 @@ public class AccessTokenRequest extends AbstractWeComRequest<AccessTokenRequest.
             return accessToken;
         }
 
-        public Response setAccessToken(String accessToken) {
+        public void setAccessToken(String accessToken) {
             this.accessToken = accessToken;
-            return this;
         }
 
         public int getExpiresIn() {
             return expiresIn;
         }
 
-        public Response setExpiresIn(int expiresIn) {
+        public void setExpiresIn(int expiresIn) {
             this.expiresIn = expiresIn;
-            return this;
         }
     }
 

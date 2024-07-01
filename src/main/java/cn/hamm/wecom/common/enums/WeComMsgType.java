@@ -1,5 +1,7 @@
 package cn.hamm.wecom.common.enums;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 /**
  * <h1>消息类型</h1>
  *
@@ -88,6 +90,7 @@ public enum WeComMsgType {
      */
     private final String type;
 
+    @JsonValue
     public String getType() {
         return type;
     }

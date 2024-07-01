@@ -2,9 +2,12 @@ package cn.hamm.wecom.module.basic.message;
 
 import cn.hamm.wecom.common.*;
 import cn.hamm.wecom.common.constant.WeComAlias;
-import cn.hamm.wecom.common.constant.WeComConstant;
 import cn.hamm.wecom.common.enums.WeComMsgType;
+import cn.hamm.wecom.common.util.json.BooleanToZeroOne;
+import cn.hamm.wecom.common.util.json.ZeroOneToBoolean;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /**
  * <h1>MessageSendRequest</h1>
@@ -30,15 +33,19 @@ public class MessageSendRequest extends AbstractWeComRequest<MessageSendRequest.
     private String toTag;
 
     @JsonProperty(WeComAlias.MSG_TYPE)
-    private String msgType;
+    private WeComMsgType msgType;
 
     @JsonProperty(WeComAlias.AGENTID)
     private String agentId;
 
-    private Integer safe = WeComConstant.BOOLEAN_FALSE_NUMBER;
+    @JsonSerialize(using = BooleanToZeroOne.class)
+    @JsonDeserialize(using = ZeroOneToBoolean.class)
+    private Boolean safe;
 
     @JsonProperty(WeComAlias.ENABLE_DUPLICATE_CHECK)
-    private Integer enableDuplicateCheck = WeComConstant.BOOLEAN_FALSE_NUMBER;
+    @JsonSerialize(using = BooleanToZeroOne.class)
+    @JsonDeserialize(using = ZeroOneToBoolean.class)
+    private Boolean enableDuplicateCheck;
 
     @JsonProperty(WeComAlias.DUPLICATE_CHECK_INTERVAL)
     private Integer dupplicateCheckInterval = 1800;
@@ -73,17 +80,13 @@ public class MessageSendRequest extends AbstractWeComRequest<MessageSendRequest.
         return this;
     }
 
-    public String getMsgType() {
+    public WeComMsgType getMsgType() {
         return msgType;
     }
 
-    public MessageSendRequest setMsgType(String msgType) {
+    public MessageSendRequest setMsgType(WeComMsgType msgType) {
         this.msgType = msgType;
         return this;
-    }
-
-    public MessageSendRequest setMsgType(WeComMsgType weComMsgType) {
-        return setMsgType(weComMsgType.getType());
     }
 
     public String getAgentId() {
@@ -95,28 +98,20 @@ public class MessageSendRequest extends AbstractWeComRequest<MessageSendRequest.
         return this;
     }
 
-    public Boolean isSafe() {
-        return safe == WeComConstant.BOOLEAN_TRUE_NUMBER;
+    public Boolean getSafe() {
+        return safe;
     }
 
     public MessageSendRequest setSafe(Boolean safe) {
-        return setSafe(safe ? WeComConstant.BOOLEAN_TRUE_NUMBER : WeComConstant.BOOLEAN_FALSE_NUMBER);
-    }
-
-    public MessageSendRequest setSafe(Integer safe) {
         this.safe = safe;
         return this;
     }
 
-    public Boolean isEnableDuplicateCheck() {
-        return enableDuplicateCheck == WeComConstant.BOOLEAN_TRUE_NUMBER;
+    public Boolean getEnableDuplicateCheck() {
+        return enableDuplicateCheck;
     }
 
     public MessageSendRequest setEnableDuplicateCheck(Boolean enableDuplicateCheck) {
-        return setEnableDuplicateCheck(enableDuplicateCheck ? WeComConstant.BOOLEAN_TRUE_NUMBER : WeComConstant.BOOLEAN_FALSE_NUMBER);
-    }
-
-    public MessageSendRequest setEnableDuplicateCheck(Integer enableDuplicateCheck) {
         this.enableDuplicateCheck = enableDuplicateCheck;
         return this;
     }

@@ -28,9 +28,8 @@ public class DomainIpRequest extends AbstractWeComRequest<DomainIpRequest.Respon
             return ipList;
         }
 
-        public Response setIpList(List<String> ipList) {
+        public void setIpList(List<String> ipList) {
             this.ipList = ipList;
-            return this;
         }
     }
 }

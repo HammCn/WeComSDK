@@ -2,6 +2,7 @@ package cn.hamm.wecom.common;
 
 import cn.hamm.wecom.common.constant.WeComAlias;
 import cn.hamm.wecom.common.constant.WeComConstant;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -16,7 +17,7 @@ public class WeComResponse<T extends WeComResponse<T>> {
      * <h2>错误代码</h2>
      */
     @JsonProperty(WeComAlias.ERROR_CODE)
-    private int errorCode;
+    private Integer errorCode;
 
     /**
      * <h2>错误信息</h2>
@@ -29,16 +30,17 @@ public class WeComResponse<T extends WeComResponse<T>> {
      *
      * @return boolean
      */
+    @JsonIgnore
     public final boolean isSuccess() {
         return WeComConstant.SUCCESS_CODE == errorCode;
     }
 
 
-    public int getErrorCode() {
+    public Integer getErrorCode() {
         return errorCode;
     }
 
-    public T setErrorCode(int errorCode) {
+    public T setErrorCode(Integer errorCode) {
         this.errorCode = errorCode;
         return (T) this;
     }
