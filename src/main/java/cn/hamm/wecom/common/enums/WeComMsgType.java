@@ -53,7 +53,7 @@ public enum WeComMsgType {
      *
      * @apiNote 参考文档 <a href="https://developer.work.weixin.qq.com/document/path/90236#%E5%9B%BE%E6%96%87%E6%B6%88%E6%81%AF">图文消息</a>
      */
-    NEWS("news"),
+    NEWS(Constant.NEWS),
 
     /**
      * <h2>图文消息（mpnews）</h2>
@@ -149,5 +149,10 @@ public enum WeComMsgType {
          * <h2>模板卡片消息</h2>
          */
         public static final String TEMPLATE_CARD = "template_card";
+
+        /**
+         * <h2>图文消息</h2>
+         */
+        public static final String NEWS = "news";
     }
 }

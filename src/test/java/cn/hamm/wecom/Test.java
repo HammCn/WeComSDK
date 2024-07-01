@@ -19,7 +19,7 @@ public class Test {
         final String agentId = "1000003";
 
 
-        DepartmentCreateRequest.Response response = new DepartmentCreateRequest().setAccessToken(accessToken).setName("测试").setParentId(0).request();
+        DepartmentCreateRequest.Response response = new DepartmentCreateRequest().setAccessToken(accessToken).setName("部门名称").setParentId(0).request();
         System.out.println(response);
 
     }

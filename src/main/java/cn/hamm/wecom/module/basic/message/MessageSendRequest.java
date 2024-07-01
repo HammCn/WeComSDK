@@ -83,8 +83,7 @@ public class MessageSendRequest extends AbstractWeComRequest<MessageSendRequest.
     }
 
     public MessageSendRequest setMsgType(WeComMsgType weComMsgType) {
-        this.msgType = weComMsgType.getType();
-        return this;
+        return setMsgType(weComMsgType.getType());
     }
 
     public String getAgentId() {
