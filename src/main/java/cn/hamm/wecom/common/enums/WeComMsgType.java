@@ -90,13 +90,13 @@ public enum WeComMsgType {
      */
     private final String type;
 
+    WeComMsgType(String type) {
+        this.type = type;
+    }
+
     @JsonValue
     public String getType() {
         return type;
-    }
-
-    WeComMsgType(String type) {
-        this.type = type;
     }
 
     /**

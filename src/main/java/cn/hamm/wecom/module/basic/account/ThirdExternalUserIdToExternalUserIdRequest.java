@@ -1,8 +1,8 @@
 package cn.hamm.wecom.module.basic.account;
 
 import cn.hamm.wecom.common.AbstractWeComRequest;
-import cn.hamm.wecom.common.constant.WeComAlias;
 import cn.hamm.wecom.common.WeComResponse;
+import cn.hamm.wecom.common.constant.WeComAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -13,11 +13,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @SuppressWarnings("unused")
 public class ThirdExternalUserIdToExternalUserIdRequest extends AbstractWeComRequest<ThirdExternalUserIdToExternalUserIdRequest.Response, ThirdExternalUserIdToExternalUserIdRequest> {
-    @Override
-    public String apiUrl() {
-        return String.format("externalcontact/from_service_external_userid?access_token=%s", getAccessToken());
-    }
-
     /**
      * <h2>服务商主体的<code>external_userid</code></h2>
      *
@@ -32,20 +27,9 @@ public class ThirdExternalUserIdToExternalUserIdRequest extends AbstractWeComReq
     @JsonProperty(WeComAlias.SOURCE_AGENT_ID)
     private Integer sourceAgentId;
 
-    public static class Response extends WeComResponse<Response> {
-        /**
-         * <h2>企业主体的<code>external_userid</code></h2>
-         */
-        @JsonProperty(WeComAlias.EXTERNAL_USER_ID)
-        private String externalUserId;
-
-        public String getExternalUserId() {
-            return externalUserId;
-        }
-
-        public void setExternalUserId(String externalUserId) {
-            this.externalUserId = externalUserId;
-        }
+    @Override
+    public String apiUrl() {
+        return String.format("externalcontact/from_service_external_userid?access_token=%s", getAccessToken());
     }
 
     public String getExternalUserId() {
@@ -64,5 +48,21 @@ public class ThirdExternalUserIdToExternalUserIdRequest extends AbstractWeComReq
     public ThirdExternalUserIdToExternalUserIdRequest setSourceAgentId(Integer sourceAgentId) {
         this.sourceAgentId = sourceAgentId;
         return this;
+    }
+
+    public static class Response extends WeComResponse<Response> {
+        /**
+         * <h2>企业主体的<code>external_userid</code></h2>
+         */
+        @JsonProperty(WeComAlias.EXTERNAL_USER_ID)
+        private String externalUserId;
+
+        public String getExternalUserId() {
+            return externalUserId;
+        }
+
+        public void setExternalUserId(String externalUserId) {
+            this.externalUserId = externalUserId;
+        }
     }
 }

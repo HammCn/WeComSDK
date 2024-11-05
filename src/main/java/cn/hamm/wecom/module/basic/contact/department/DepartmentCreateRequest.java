@@ -1,8 +1,8 @@
 package cn.hamm.wecom.module.basic.contact.department;
 
 import cn.hamm.wecom.common.AbstractWeComRequest;
-import cn.hamm.wecom.common.constant.WeComAlias;
 import cn.hamm.wecom.common.WeComResponse;
+import cn.hamm.wecom.common.constant.WeComAlias;
 import cn.hamm.wecom.common.enums.WeComApiMethod;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -14,16 +14,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @SuppressWarnings("unused")
 public class DepartmentCreateRequest extends AbstractWeComRequest<DepartmentCreateRequest.Response, DepartmentCreateRequest> {
-
-    @Override
-    public String apiUrl() {
-        return String.format("department/create?access_token=%s", getAccessToken());
-    }
-
-    @Override
-    public WeComApiMethod apiMethod() {
-        return WeComApiMethod.POST;
-    }
 
     /**
      * <h2>部门名称</h2>
@@ -60,19 +50,14 @@ public class DepartmentCreateRequest extends AbstractWeComRequest<DepartmentCrea
      */
     private Integer id;
 
-    public static class Response extends WeComResponse<Response> {
-        /**
-         * <h2>创建的部门id</h2>
-         */
-        private Integer id;
+    @Override
+    public String apiUrl() {
+        return String.format("department/create?access_token=%s", getAccessToken());
+    }
 
-        public Integer getId() {
-            return id;
-        }
-
-        public void setId(Integer id) {
-            this.id = id;
-        }
+    @Override
+    public WeComApiMethod apiMethod() {
+        return WeComApiMethod.POST;
     }
 
     public String getName() {
@@ -118,5 +103,20 @@ public class DepartmentCreateRequest extends AbstractWeComRequest<DepartmentCrea
     public DepartmentCreateRequest setId(Integer id) {
         this.id = id;
         return this;
+    }
+
+    public static class Response extends WeComResponse<Response> {
+        /**
+         * <h2>创建的部门id</h2>
+         */
+        private Integer id;
+
+        public Integer getId() {
+            return id;
+        }
+
+        public void setId(Integer id) {
+            this.id = id;
+        }
     }
 }

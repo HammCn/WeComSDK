@@ -1,8 +1,8 @@
 package cn.hamm.wecom.module.common.ip;
 
 import cn.hamm.wecom.common.AbstractWeComRequest;
-import cn.hamm.wecom.common.constant.WeComAlias;
 import cn.hamm.wecom.common.WeComResponse;
+import cn.hamm.wecom.common.constant.WeComAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;

@@ -24,14 +24,6 @@ public class WeComApiException extends RuntimeException {
      */
     private final String response;
 
-    public int getCode() {
-        return code;
-    }
-
-    public String getResponse() {
-        return response;
-    }
-
     /**
      * <h2>WeComApiException</h2>
      *
@@ -44,5 +36,13 @@ public class WeComApiException extends RuntimeException {
         this.code = code;
         this.response = response;
         WeCom.debug("查看错误说明文档", DOCUMENT_URL + code, true);
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+    public String getResponse() {
+        return response;
     }
 }

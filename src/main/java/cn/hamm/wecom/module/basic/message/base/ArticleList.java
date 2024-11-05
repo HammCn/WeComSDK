@@ -16,20 +16,6 @@ public class ArticleList<M extends ArticleList<M, A>, A extends ArticleList.Arti
     @JsonProperty(WeComAlias.ARTICLE_LIST)
     private List<A> articleList;
 
-    public static class Article<A extends Article<A>> {
-
-        private String title;
-
-        public String getTitle() {
-            return title;
-        }
-
-        public A setTitle(String title) {
-            this.title = title;
-            return (A) this;
-        }
-    }
-
     public List<A> getArticleList() {
         return articleList;
     }
@@ -45,5 +31,19 @@ public class ArticleList<M extends ArticleList<M, A>, A extends ArticleList.Arti
         }
         articleList.add(article);
         return (M) this;
+    }
+
+    public static class Article<A extends Article<A>> {
+
+        private String title;
+
+        public String getTitle() {
+            return title;
+        }
+
+        public A setTitle(String title) {
+            this.title = title;
+            return (A) this;
+        }
     }
 }

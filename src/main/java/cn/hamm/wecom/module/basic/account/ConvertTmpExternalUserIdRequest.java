@@ -20,11 +20,6 @@ import java.util.Objects;
 @SuppressWarnings("unused")
 public class ConvertTmpExternalUserIdRequest extends AbstractWeComRequest<ConvertTmpExternalUserIdRequest.Response, ConvertTmpExternalUserIdRequest> {
 
-    @Override
-    public String apiUrl() {
-        return String.format("idconvert/convert_tmp_external_userid?access_token=%s", getAccessToken());
-    }
-
     /**
      * <h2>业务类型</h2>
      */
@@ -45,91 +40,43 @@ public class ConvertTmpExternalUserIdRequest extends AbstractWeComRequest<Conver
     @JsonProperty(WeComAlias.TMP_EXTERNAL_USER_ID_LIST)
     private List<String> tmpExternalUserIdList;
 
-    public static class Response extends WeComResponse<Response> {
-        /**
-         * <h2>转换成功的结果列表</h2>
-         */
-        private List<Result> results;
+    @Override
+    public String apiUrl() {
+        return String.format("idconvert/convert_tmp_external_userid?access_token=%s", getAccessToken());
+    }
 
-        /**
-         * <h2>无法转换的<code>tmp_external_userid</code></h2>
-         *
-         * @apiNote 可能非法或没有权限
-         */
-        @JsonProperty(WeComAlias.INVALID_TMP_EXTERNAL_USER_ID_LIST)
-        private String invalidTmpExternalUserIdList;
+    public BusinessType getBusinessType() {
+        return businessType;
+    }
 
-        public static class Result {
-            /**
-             * <h2>输入的<code>tmp_external_userid</code></h2>
-             */
-            @JsonProperty(WeComAlias.TMP_EXTERNAL_USER_ID)
-            private String tmpExternalUserid;
+    public ConvertTmpExternalUserIdRequest setBusinessType(BusinessType businessType) {
+        this.businessType = businessType;
+        return this;
+    }
 
-            /**
-             * <h2>转换后的<code>userid</code></h2>
-             *
-             * @apiNote <code>user_type</code> 为 {@link UserType#CUSTOMER} 时返回
-             */
-            @JsonProperty(WeComAlias.EXTERNAL_USER_ID)
-            private String externalUserid;
+    public UserType getUserType() {
+        return userType;
+    }
 
-            /**
-             * <h2><code>userid</code>对应的<code>corpid</code></h2>
-             *
-             * @apiNote <code>user_type</code> 为 {@link UserType#INTERNET_COMPANY},{@link UserType#UPSTREAM},{@link UserType#INTERNET_COMPANY_CIRCLE}, 时返回
-             */
-            @JsonProperty(WeComAlias.CORP_ID)
-            private String corpId;
+    public void setUserType(UserType userType) {
+        this.userType = userType;
+    }
 
-            /**
-             * <h2>转换后的<code>userid</code></h2>
-             *
-             * @apiNote <code>user_type</code> 为 {@link UserType#INTERNET_COMPANY},{@link UserType#UPSTREAM},{@link UserType#INTERNET_COMPANY_CIRCLE}, 时返回
-             */
-            @JsonProperty(WeComAlias.USER_ID)
-            private String userId;
+    public List<String> getTmpExternalUserIdList() {
+        return tmpExternalUserIdList;
+    }
 
-            public String getTmpExternalUserid() {
-                return tmpExternalUserid;
-            }
+    public ConvertTmpExternalUserIdRequest setTmpExternalUserIdList(List<String> tmpExternalUserIdList) {
+        this.tmpExternalUserIdList = tmpExternalUserIdList;
+        return this;
+    }
 
-            public void setTmpExternalUserid(String tmpExternalUserid) {
-                this.tmpExternalUserid = tmpExternalUserid;
-            }
-
-            public String getExternalUserid() {
-                return externalUserid;
-            }
-
-            public void setExternalUserid(String externalUserid) {
-                this.externalUserid = externalUserid;
-            }
-
-            public String getCorpId() {
-                return corpId;
-            }
-
-            public void setCorpId(String corpId) {
-                this.corpId = corpId;
-            }
-
-            public String getUserId() {
-                return userId;
-            }
-
-            public void setUserId(String userId) {
-                this.userId = userId;
-            }
+    public ConvertTmpExternalUserIdRequest addTmpExternalUserId(String tmpExternalUserId) {
+        if (Objects.isNull(tmpExternalUserIdList)) {
+            tmpExternalUserIdList = new ArrayList<>();
         }
-
-        public List<Result> getResults() {
-            return results;
-        }
-
-        public void setResults(List<Result> results) {
-            this.results = results;
-        }
+        tmpExternalUserIdList.add(tmpExternalUserId);
+        return this;
     }
 
     /**
@@ -194,37 +141,90 @@ public class ConvertTmpExternalUserIdRequest extends AbstractWeComRequest<Conver
         }
     }
 
-    public BusinessType getBusinessType() {
-        return businessType;
-    }
+    public static class Response extends WeComResponse<Response> {
+        /**
+         * <h2>转换成功的结果列表</h2>
+         */
+        private List<Result> results;
 
-    public ConvertTmpExternalUserIdRequest setBusinessType(BusinessType businessType) {
-        this.businessType = businessType;
-        return this;
-    }
+        /**
+         * <h2>无法转换的<code>tmp_external_userid</code></h2>
+         *
+         * @apiNote 可能非法或没有权限
+         */
+        @JsonProperty(WeComAlias.INVALID_TMP_EXTERNAL_USER_ID_LIST)
+        private String invalidTmpExternalUserIdList;
 
-    public UserType getUserType() {
-        return userType;
-    }
-
-    public void setUserType(UserType userType) {
-        this.userType = userType;
-    }
-
-    public List<String> getTmpExternalUserIdList() {
-        return tmpExternalUserIdList;
-    }
-
-    public ConvertTmpExternalUserIdRequest setTmpExternalUserIdList(List<String> tmpExternalUserIdList) {
-        this.tmpExternalUserIdList = tmpExternalUserIdList;
-        return this;
-    }
-
-    public ConvertTmpExternalUserIdRequest addTmpExternalUserId(String tmpExternalUserId) {
-        if (Objects.isNull(tmpExternalUserIdList)) {
-            tmpExternalUserIdList = new ArrayList<>();
+        public List<Result> getResults() {
+            return results;
         }
-        tmpExternalUserIdList.add(tmpExternalUserId);
-        return this;
+
+        public void setResults(List<Result> results) {
+            this.results = results;
+        }
+
+        public static class Result {
+            /**
+             * <h2>输入的<code>tmp_external_userid</code></h2>
+             */
+            @JsonProperty(WeComAlias.TMP_EXTERNAL_USER_ID)
+            private String tmpExternalUserid;
+
+            /**
+             * <h2>转换后的<code>userid</code></h2>
+             *
+             * @apiNote <code>user_type</code> 为 {@link UserType#CUSTOMER} 时返回
+             */
+            @JsonProperty(WeComAlias.EXTERNAL_USER_ID)
+            private String externalUserid;
+
+            /**
+             * <h2><code>userid</code>对应的<code>corpid</code></h2>
+             *
+             * @apiNote <code>user_type</code> 为 {@link UserType#INTERNET_COMPANY},{@link UserType#UPSTREAM},{@link UserType#INTERNET_COMPANY_CIRCLE}, 时返回
+             */
+            @JsonProperty(WeComAlias.CORP_ID)
+            private String corpId;
+
+            /**
+             * <h2>转换后的<code>userid</code></h2>
+             *
+             * @apiNote <code>user_type</code> 为 {@link UserType#INTERNET_COMPANY},{@link UserType#UPSTREAM},{@link UserType#INTERNET_COMPANY_CIRCLE}, 时返回
+             */
+            @JsonProperty(WeComAlias.USER_ID)
+            private String userId;
+
+            public String getTmpExternalUserid() {
+                return tmpExternalUserid;
+            }
+
+            public void setTmpExternalUserid(String tmpExternalUserid) {
+                this.tmpExternalUserid = tmpExternalUserid;
+            }
+
+            public String getExternalUserid() {
+                return externalUserid;
+            }
+
+            public void setExternalUserid(String externalUserid) {
+                this.externalUserid = externalUserid;
+            }
+
+            public String getCorpId() {
+                return corpId;
+            }
+
+            public void setCorpId(String corpId) {
+                this.corpId = corpId;
+            }
+
+            public String getUserId() {
+                return userId;
+            }
+
+            public void setUserId(String userId) {
+                this.userId = userId;
+            }
+        }
     }
 }

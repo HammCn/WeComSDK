@@ -1,12 +1,10 @@
 package cn.hamm.wecom.module.basic.app;
 
 import cn.hamm.wecom.common.AbstractWeComRequest;
-import cn.hamm.wecom.common.constant.WeComAlias;
 import cn.hamm.wecom.common.WeComResponse;
-import cn.hamm.wecom.common.constant.WeComConstant;
+import cn.hamm.wecom.common.constant.WeComAlias;
 import cn.hamm.wecom.common.enums.WeComApiMethod;
 import cn.hamm.wecom.common.enums.WeComCustomizedPublishStatus;
-import cn.hamm.wecom.common.util.JsonUtil;
 import cn.hamm.wecom.common.util.json.BooleanToZeroOne;
 import cn.hamm.wecom.common.util.json.ZeroOneToBoolean;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -23,6 +21,12 @@ import java.util.List;
  * @see <a href="https://developer.work.weixin.qq.com/document/path/90227#%E8%8E%B7%E5%8F%96%E6%8C%87%E5%AE%9A%E7%9A%84%E5%BA%94%E7%94%A8%E8%AF%A6%E6%83%85">获取指定的应用详情</a>
  */
 public class GetAppRequest extends AbstractWeComRequest<GetAppRequest.Response, GetAppRequest> {
+    /**
+     * <h2>应用id</h2>
+     */
+    @JsonProperty(WeComAlias.AGENTID)
+    private String agentId;
+
     @Override
     public String apiUrl() {
         return String.format("agent/get?access_token=%s&agentid=%s", getAccessToken(), getAgentId());
@@ -33,11 +37,14 @@ public class GetAppRequest extends AbstractWeComRequest<GetAppRequest.Response, 
         return WeComApiMethod.POST;
     }
 
-    /**
-     * <h2>应用id</h2>
-     */
-    @JsonProperty(WeComAlias.AGENTID)
-    private String agentId;
+    public String getAgentId() {
+        return agentId;
+    }
+
+    public GetAppRequest setAgentId(String agentId) {
+        this.agentId = agentId;
+        return this;
+    }
 
     public static class Response extends WeComResponse<Response> {
         /**
@@ -123,71 +130,6 @@ public class GetAppRequest extends AbstractWeComRequest<GetAppRequest.Response, 
         @JsonProperty(WeComAlias.CUSTOMIZED_PUBLISH_STATUS)
         private WeComCustomizedPublishStatus customizedPublishStatus;
 
-        public static class AllowUserInfo {
-            /**
-             * <h2>成员id列表</h2>
-             */
-            @JsonProperty(WeComAlias.USER)
-            private List<User> userList;
-
-            public static class User {
-                /**
-                 * <h2>成员id</h2>
-                 */
-                @JsonProperty(WeComAlias.USER_ID)
-                private String userId;
-
-                public void setUserId(String userId) {
-                    this.userId = userId;
-                }
-
-                public String getUserId() {
-                    return userId;
-                }
-            }
-
-            public List<User> getUserList() {
-                return userList;
-            }
-
-            public void setUserList(List<User> userList) {
-                this.userList = userList;
-            }
-        }
-
-        public static class AllowParty {
-            /**
-             * <h2>部门id列表</h2>
-             */
-            @JsonProperty(WeComAlias.PARTY_ID)
-            private List<Integer> partyIdList;
-
-            public List<Integer> getPartyIdList() {
-                return partyIdList;
-            }
-
-            public void setPartyIdList(List<Integer> partyIdList) {
-                this.partyIdList = partyIdList;
-            }
-        }
-
-        public static class AllowTag {
-            /**
-             * <h2>标签id列表</h2>
-             */
-            @JsonProperty(WeComAlias.TAG_ID)
-            private List<Integer> tagIdList;
-
-            public List<Integer> getTagIdList() {
-                return tagIdList;
-            }
-
-            public void setTagIdList(List<Integer> tagIdList) {
-                this.tagIdList = tagIdList;
-            }
-        }
-
-
         public Integer getAgentId() {
             return agentId;
         }
@@ -244,12 +186,12 @@ public class GetAppRequest extends AbstractWeComRequest<GetAppRequest.Response, 
             this.allowTag = allowTag;
         }
 
-        public void setClose(Boolean close) {
-            this.close = close;
-        }
-
         public Boolean getClose() {
             return close;
+        }
+
+        public void setClose(Boolean close) {
+            this.close = close;
         }
 
         public String getRedirectDomain() {
@@ -291,14 +233,69 @@ public class GetAppRequest extends AbstractWeComRequest<GetAppRequest.Response, 
         public void setCustomizedPublishStatus(WeComCustomizedPublishStatus customizedPublishStatus) {
             this.customizedPublishStatus = customizedPublishStatus;
         }
-    }
 
-    public String getAgentId() {
-        return agentId;
-    }
+        public static class AllowUserInfo {
+            /**
+             * <h2>成员id列表</h2>
+             */
+            @JsonProperty(WeComAlias.USER)
+            private List<User> userList;
 
-    public GetAppRequest setAgentId(String agentId) {
-        this.agentId = agentId;
-        return this;
+            public List<User> getUserList() {
+                return userList;
+            }
+
+            public void setUserList(List<User> userList) {
+                this.userList = userList;
+            }
+
+            public static class User {
+                /**
+                 * <h2>成员id</h2>
+                 */
+                @JsonProperty(WeComAlias.USER_ID)
+                private String userId;
+
+                public String getUserId() {
+                    return userId;
+                }
+
+                public void setUserId(String userId) {
+                    this.userId = userId;
+                }
+            }
+        }
+
+        public static class AllowParty {
+            /**
+             * <h2>部门id列表</h2>
+             */
+            @JsonProperty(WeComAlias.PARTY_ID)
+            private List<Integer> partyIdList;
+
+            public List<Integer> getPartyIdList() {
+                return partyIdList;
+            }
+
+            public void setPartyIdList(List<Integer> partyIdList) {
+                this.partyIdList = partyIdList;
+            }
+        }
+
+        public static class AllowTag {
+            /**
+             * <h2>标签id列表</h2>
+             */
+            @JsonProperty(WeComAlias.TAG_ID)
+            private List<Integer> tagIdList;
+
+            public List<Integer> getTagIdList() {
+                return tagIdList;
+            }
+
+            public void setTagIdList(List<Integer> tagIdList) {
+                this.tagIdList = tagIdList;
+            }
+        }
     }
 }

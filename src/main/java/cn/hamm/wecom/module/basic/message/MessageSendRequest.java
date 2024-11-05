@@ -1,6 +1,7 @@
 package cn.hamm.wecom.module.basic.message;
 
-import cn.hamm.wecom.common.*;
+import cn.hamm.wecom.common.AbstractWeComRequest;
+import cn.hamm.wecom.common.WeComResponse;
 import cn.hamm.wecom.common.constant.WeComAlias;
 import cn.hamm.wecom.common.enums.WeComMsgType;
 import cn.hamm.wecom.common.util.json.BooleanToZeroOne;
@@ -17,12 +18,6 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
  */
 @SuppressWarnings("unused")
 public class MessageSendRequest extends AbstractWeComRequest<MessageSendRequest.Response, MessageSendRequest> {
-
-    @Override
-    public String apiUrl() {
-        return String.format("message/send?access_token=%s", getAccessToken());
-    }
-
     @JsonProperty(WeComAlias.TO_USER)
     private String toUser;
 
@@ -50,7 +45,9 @@ public class MessageSendRequest extends AbstractWeComRequest<MessageSendRequest.
     @JsonProperty(WeComAlias.DUPLICATE_CHECK_INTERVAL)
     private Integer dupplicateCheckInterval = 1800;
 
-    public static class Response extends WeComResponse<Response> {
+    @Override
+    public String apiUrl() {
+        return String.format("message/send?access_token=%s", getAccessToken());
     }
 
     public String getToUser() {
@@ -123,5 +120,8 @@ public class MessageSendRequest extends AbstractWeComRequest<MessageSendRequest.
     public MessageSendRequest setDupplicateCheckInterval(Integer dupplicateCheckInterval) {
         this.dupplicateCheckInterval = dupplicateCheckInterval;
         return this;
+    }
+
+    public static class Response extends WeComResponse<Response> {
     }
 }

@@ -3,10 +3,9 @@ package cn.hamm.wecom;
 import cn.hamm.wecom.common.WeCom;
 import cn.hamm.wecom.common.exception.WeComException;
 import cn.hamm.wecom.module.basic.contact.department.DepartmentCreateRequest;
-import cn.hamm.wecom.module.basic.message.MessageSendRequest;
 import cn.hamm.wecom.module.common.ip.CallbackIpRequest;
-import cn.hamm.wecom.module.common.token.AccessTokenRequest;
 import cn.hamm.wecom.module.common.ip.DomainIpRequest;
+import cn.hamm.wecom.module.common.token.AccessTokenRequest;
 
 import java.util.List;
 

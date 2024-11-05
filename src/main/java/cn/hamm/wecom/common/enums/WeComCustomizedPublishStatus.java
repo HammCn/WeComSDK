@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
  *
  * @author Hamm.cn
  */
-public enum WeComCustomizedPublishStatus{
+public enum WeComCustomizedPublishStatus {
     /**
      * <h2>待开发</h2>
      *
@@ -41,6 +41,7 @@ public enum WeComCustomizedPublishStatus{
     WeComCustomizedPublishStatus(int value) {
         this.value = value;
     }
+
     @JsonValue
     public int getValue() {
         return value;

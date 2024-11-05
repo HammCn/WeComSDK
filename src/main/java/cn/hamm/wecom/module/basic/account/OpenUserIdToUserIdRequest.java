@@ -1,8 +1,8 @@
 package cn.hamm.wecom.module.basic.account;
 
 import cn.hamm.wecom.common.AbstractWeComRequest;
-import cn.hamm.wecom.common.constant.WeComAlias;
 import cn.hamm.wecom.common.WeComResponse;
+import cn.hamm.wecom.common.constant.WeComAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
@@ -16,12 +16,6 @@ import java.util.Objects;
  */
 @SuppressWarnings("unused")
 public class OpenUserIdToUserIdRequest extends AbstractWeComRequest<OpenUserIdToUserIdRequest.Response, OpenUserIdToUserIdRequest> {
-
-    @Override
-    public String apiUrl() {
-        return String.format("batch/openuserid_to_userid?access_token=%s", getAccessToken());
-    }
-
     /**
      * <h2><code>open_userid</code>列表</h2>
      *
@@ -36,6 +30,37 @@ public class OpenUserIdToUserIdRequest extends AbstractWeComRequest<OpenUserIdTo
     @JsonProperty(WeComAlias.SOURCE_AGENT_ID)
     private Integer sourceAgentId;
 
+    @Override
+    public String apiUrl() {
+        return String.format("batch/openuserid_to_userid?access_token=%s", getAccessToken());
+    }
+
+    public List<String> getOpenUserIdList() {
+        return openUserIdList;
+    }
+
+    public OpenUserIdToUserIdRequest setOpenUserIdList(List<String> openUserIdList) {
+        this.openUserIdList = openUserIdList;
+        return this;
+    }
+
+    public OpenUserIdToUserIdRequest addOpenUserId(String openUserId) {
+        if (Objects.isNull(openUserIdList)) {
+            openUserIdList = new java.util.ArrayList<>();
+        }
+        openUserIdList.add(openUserId);
+        return this;
+    }
+
+    public Integer getSourceAgentId() {
+        return sourceAgentId;
+    }
+
+    public OpenUserIdToUserIdRequest setSourceAgentId(Integer sourceAgentId) {
+        this.sourceAgentId = sourceAgentId;
+        return this;
+    }
+
     public static class Response extends WeComResponse<Response> {
         /**
          * <h2>明文<code>userid</code>列表</h2>
@@ -48,6 +73,22 @@ public class OpenUserIdToUserIdRequest extends AbstractWeComRequest<OpenUserIdTo
          */
         @JsonProperty("invalid_open_userid_list")
         private List<String> invalidOpenUserId;
+
+        public List<UserIdInfo> getUserIdInfoList() {
+            return userIdInfoList;
+        }
+
+        public void setUserIdInfoList(List<UserIdInfo> userIdInfoList) {
+            this.userIdInfoList = userIdInfoList;
+        }
+
+        public List<String> getInvalidOpenUserId() {
+            return invalidOpenUserId;
+        }
+
+        public void setInvalidOpenUserId(List<String> invalidOpenUserId) {
+            this.invalidOpenUserId = invalidOpenUserId;
+        }
 
         public static class UserIdInfo {
             /**
@@ -78,47 +119,5 @@ public class OpenUserIdToUserIdRequest extends AbstractWeComRequest<OpenUserIdTo
                 this.userId = userId;
             }
         }
-
-        public List<UserIdInfo> getUserIdInfoList() {
-            return userIdInfoList;
-        }
-
-        public void setUserIdInfoList(List<UserIdInfo> userIdInfoList) {
-            this.userIdInfoList = userIdInfoList;
-        }
-
-        public List<String> getInvalidOpenUserId() {
-            return invalidOpenUserId;
-        }
-
-        public void setInvalidOpenUserId(List<String> invalidOpenUserId) {
-            this.invalidOpenUserId = invalidOpenUserId;
-        }
-    }
-
-    public List<String> getOpenUserIdList() {
-        return openUserIdList;
-    }
-
-    public OpenUserIdToUserIdRequest setOpenUserIdList(List<String> openUserIdList) {
-        this.openUserIdList = openUserIdList;
-        return this;
-    }
-
-    public OpenUserIdToUserIdRequest addOpenUserId(String openUserId) {
-        if (Objects.isNull(openUserIdList)) {
-            openUserIdList = new java.util.ArrayList<>();
-        }
-        openUserIdList.add(openUserId);
-        return this;
-    }
-
-    public Integer getSourceAgentId() {
-        return sourceAgentId;
-    }
-
-    public OpenUserIdToUserIdRequest setSourceAgentId(Integer sourceAgentId) {
-        this.sourceAgentId = sourceAgentId;
-        return this;
     }
 }
