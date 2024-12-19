@@ -1,6 +1,6 @@
 package cn.hamm.wecom.module.basic.message.type;
 
-import cn.hamm.wecom.module.basic.message.base.MediaMessage;
+import cn.hamm.wecom.module.basic.message.base.Message;
 
 /**
  * <h1>文件消息</h1>
@@ -8,5 +8,5 @@ import cn.hamm.wecom.module.basic.message.base.MediaMessage;
  * @author Hamm.cn
  */
 @SuppressWarnings("unused")
-public class File extends MediaMessage<File> {
+public class File extends Message<File> {
 }

@@ -1,12 +1,14 @@
 package cn.hamm.wecom.module.basic.message.type;
 
+import cn.hamm.wecom.module.basic.message.base.Message;
+
 /**
  * <h1>文本卡片</h1>
  *
  * @author Hamm.cn
  */
 @SuppressWarnings("unused")
-public class TextCard {
+public class TextCard extends Message<TextCard> {
 
     private String title;
 

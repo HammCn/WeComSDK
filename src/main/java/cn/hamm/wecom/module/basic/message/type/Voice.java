@@ -1,6 +1,6 @@
 package cn.hamm.wecom.module.basic.message.type;
 
-import cn.hamm.wecom.module.basic.message.base.MediaMessage;
+import cn.hamm.wecom.module.basic.message.base.Message;
 
 /**
  * <h1>视频消息</h1>
@@ -8,5 +8,5 @@ import cn.hamm.wecom.module.basic.message.base.MediaMessage;
  * @author Hamm.cn
  */
 @SuppressWarnings("unused")
-public class Voice extends MediaMessage<Voice> {
+public class Voice extends Message<Voice> {
 }
