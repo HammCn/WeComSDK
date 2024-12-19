@@ -1,8 +1,12 @@
 package cn.hamm.wecom;
 
 import cn.hamm.wecom.common.WeCom;
+import cn.hamm.wecom.common.enums.WeComMsgType;
 import cn.hamm.wecom.common.exception.WeComException;
 import cn.hamm.wecom.module.basic.contact.department.DepartmentCreateRequest;
+import cn.hamm.wecom.module.basic.message.MessageSendRequest;
+import cn.hamm.wecom.module.basic.message.base.Message;
+import cn.hamm.wecom.module.basic.message.type.Text;
 import cn.hamm.wecom.module.common.ip.CallbackIpRequest;
 import cn.hamm.wecom.module.common.ip.DomainIpRequest;
 import cn.hamm.wecom.module.common.token.AccessTokenRequest;
@@ -20,7 +24,14 @@ public class Test {
 
         DepartmentCreateRequest.Response response = new DepartmentCreateRequest().setAccessToken(accessToken).setName("部门名称").setParentId(0).request();
         System.out.println(response);
+        WeComMsgType type = WeComMsgType.TEXT;
+        Text message = new Text();
+        message.setContent("hello, world!");
+        sendMessage(accessToken, type, message);
+    }
 
+    public static void sendMessage(String accessToken, WeComMsgType msgType, Message<?> message) throws WeComException {
+        new MessageSendRequest().setAccessToken(accessToken).setMsgType(msgType).resolveMessage(msgType, message).request();
     }
 
     private static List<String> getDomainIp(String accessToken) throws WeComException {

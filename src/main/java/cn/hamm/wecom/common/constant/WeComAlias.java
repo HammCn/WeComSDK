@@ -17,6 +17,7 @@ public class WeComAlias {
     public static final String TO_USER = "touser";
     public static final String TO_PARTY = "toparty";
     public static final String TO_TAG = "totag";
+    public static final String TEXT_CARD = "textcard";
     public static final String MEDIA_ID = "media_id";
     public static final String APPID = "appid";
     public static final String PAGE_PATH = "pagepath";
