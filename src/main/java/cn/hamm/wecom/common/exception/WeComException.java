@@ -7,7 +7,7 @@ package cn.hamm.wecom.common.exception;
  */
 public class WeComException extends Exception {
     /**
-     * <h2>WeComException</h2>
+     * <h3>WeComException</h3>
      *
      * @param message 错误信息
      */

@@ -5,7 +5,7 @@ import cn.hamm.wecom.common.WeComResponse;
 import cn.hamm.wecom.common.enums.WeComApiMethod;
 
 /**
- * <h1>UserCreateRequest</h1>
+ * <h1>创建成员</h1>
  *
  * @author Hamm.cn
  * @apiNote 仅通讯录同步助手或第三方通讯录应用可调用。注意，每个部门下的部门、成员总数不能超过3万个。建议保证创建department对应的部门和创建成员是串行化处理。

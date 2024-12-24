@@ -8,12 +8,12 @@ package cn.hamm.wecom.common;
 @SuppressWarnings("unused")
 public class WeCom {
     /**
-     * <h2>是否开启DEBUG模式</h2>
+     * <h3>是否开启DEBUG模式</h3>
      */
     public static boolean isDebug = false;
 
     /**
-     * <h2>调试输出错误信息</h2>
+     * <h3>调试输出错误信息</h3>
      *
      * @param title   标题
      * @param message 内容
@@ -23,7 +23,7 @@ public class WeCom {
     }
 
     /**
-     * <h2>调试输出错误信息</h2>
+     * <h3>调试输出错误信息</h3>
      *
      * @param title   标题
      * @param message 内容

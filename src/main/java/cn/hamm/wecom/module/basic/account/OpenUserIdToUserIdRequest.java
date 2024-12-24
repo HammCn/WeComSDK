@@ -17,7 +17,7 @@ import java.util.Objects;
 @SuppressWarnings("unused")
 public class OpenUserIdToUserIdRequest extends AbstractWeComRequest<OpenUserIdToUserIdRequest.Response, OpenUserIdToUserIdRequest> {
     /**
-     * <h2><code>open_userid</code>列表</h2>
+     * <h3><code>open_userid</code>列表</h3>
      *
      * @apiNote 最多不超过1000个。必须是<code>source_agentid</code>对应的应用所获取
      */
@@ -25,7 +25,7 @@ public class OpenUserIdToUserIdRequest extends AbstractWeComRequest<OpenUserIdTo
     private List<String> openUserIdList;
 
     /**
-     * <h2>企业授权的代开发自建应用或第三方应用的<code>agentid</code></h2>
+     * <h3>企业授权的代开发自建应用或第三方应用的<code>agentid</code></h3>
      */
     @JsonProperty(WeComAlias.SOURCE_AGENT_ID)
     private Integer sourceAgentId;
@@ -63,13 +63,13 @@ public class OpenUserIdToUserIdRequest extends AbstractWeComRequest<OpenUserIdTo
 
     public static class Response extends WeComResponse<Response> {
         /**
-         * <h2>明文<code>userid</code>列表</h2>
+         * <h3>明文<code>userid</code>列表</h3>
          */
         @JsonProperty(WeComAlias.USERID_LIST)
         private List<UserIdInfo> userIdInfoList;
 
         /**
-         * <h2>不合法的<code>open_userid</code>列表</h2>
+         * <h3>不合法的<code>open_userid</code>列表</h3>
          */
         @JsonProperty("invalid_open_userid_list")
         private List<String> invalidOpenUserId;
@@ -92,13 +92,13 @@ public class OpenUserIdToUserIdRequest extends AbstractWeComRequest<OpenUserIdTo
 
         public static class UserIdInfo {
             /**
-             * <h2>转换成功的<code>open_userid</code></h2>
+             * <h3>转换成功的<code>open_userid</code></h3>
              */
             @JsonProperty(WeComAlias.OPEN_USER_ID)
             private String openUserId;
 
             /**
-             * <h2>转换成功的<code>open_userid</code>对应的<code>userid</code></h2>
+             * <h3>转换成功的<code>open_userid</code>对应的<code>userid</code></h3>
              */
             @JsonProperty(WeComAlias.USER_ID)
             private String userId;

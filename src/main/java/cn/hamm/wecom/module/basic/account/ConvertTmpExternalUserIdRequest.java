@@ -21,19 +21,19 @@ import java.util.Objects;
 public class ConvertTmpExternalUserIdRequest extends AbstractWeComRequest<ConvertTmpExternalUserIdRequest.Response, ConvertTmpExternalUserIdRequest> {
 
     /**
-     * <h2>业务类型</h2>
+     * <h3>业务类型</h3>
      */
     @JsonProperty(WeComAlias.BUSINESS_TYPE)
     private BusinessType businessType;
 
     /**
-     * <h2>用户类型</h2>
+     * <h3>用户类型</h3>
      */
     @JsonProperty(WeComAlias.USER_TYPE)
     private UserType userType;
 
     /**
-     * <h2>外部用户临时id</h2>
+     * <h3>外部用户临时id</h3>
      *
      * @apiNote 最多不超过100个
      */
@@ -80,7 +80,7 @@ public class ConvertTmpExternalUserIdRequest extends AbstractWeComRequest<Conver
     }
 
     /**
-     * <h2>业务类型</h2>
+     * <h3>业务类型</h3>
      */
     public enum BusinessType {
         /**
@@ -89,7 +89,7 @@ public class ConvertTmpExternalUserIdRequest extends AbstractWeComRequest<Conver
         MEETING(1),
 
         /**
-         * <h2>收集表</h2>
+         * <h3>收集表</h3>
          */
         COLLECTION_TABLE(2);
 
@@ -106,26 +106,26 @@ public class ConvertTmpExternalUserIdRequest extends AbstractWeComRequest<Conver
     }
 
     /**
-     * <h2>用户类型</h2>
+     * <h3>用户类型</h3>
      */
     public enum UserType {
         /**
-         * <h2>客户</h2>
+         * <h3>客户</h3>
          */
         CUSTOMER(1),
 
         /**
-         * <h2>企业互联</h2>
+         * <h3>企业互联</h3>
          */
         INTERNET_COMPANY(2),
 
         /**
-         * <h2>上下游</h2>
+         * <h3>上下游</h3>
          */
         UPSTREAM(3),
 
         /**
-         * <h2>互联企业(圈子)</h2>
+         * <h3>互联企业(圈子)</h3>
          */
         INTERNET_COMPANY_CIRCLE(4);
 
@@ -143,12 +143,12 @@ public class ConvertTmpExternalUserIdRequest extends AbstractWeComRequest<Conver
 
     public static class Response extends WeComResponse<Response> {
         /**
-         * <h2>转换成功的结果列表</h2>
+         * <h3>转换成功的结果列表</h3>
          */
         private List<Result> results;
 
         /**
-         * <h2>无法转换的<code>tmp_external_userid</code></h2>
+         * <h3>无法转换的<code>tmp_external_userid</code></h3>
          *
          * @apiNote 可能非法或没有权限
          */
@@ -165,13 +165,13 @@ public class ConvertTmpExternalUserIdRequest extends AbstractWeComRequest<Conver
 
         public static class Result {
             /**
-             * <h2>输入的<code>tmp_external_userid</code></h2>
+             * <h3>输入的<code>tmp_external_userid</code></h3>
              */
             @JsonProperty(WeComAlias.TMP_EXTERNAL_USER_ID)
             private String tmpExternalUserid;
 
             /**
-             * <h2>转换后的<code>userid</code></h2>
+             * <h3>转换后的<code>userid</code></h3>
              *
              * @apiNote <code>user_type</code> 为 {@link UserType#CUSTOMER} 时返回
              */
@@ -179,7 +179,7 @@ public class ConvertTmpExternalUserIdRequest extends AbstractWeComRequest<Conver
             private String externalUserid;
 
             /**
-             * <h2><code>userid</code>对应的<code>corpid</code></h2>
+             * <h3><code>userid</code>对应的<code>corpid</code></h3>
              *
              * @apiNote <code>user_type</code> 为 {@link UserType#INTERNET_COMPANY},{@link UserType#UPSTREAM},{@link UserType#INTERNET_COMPANY_CIRCLE}, 时返回
              */
@@ -187,7 +187,7 @@ public class ConvertTmpExternalUserIdRequest extends AbstractWeComRequest<Conver
             private String corpId;
 
             /**
-             * <h2>转换后的<code>userid</code></h2>
+             * <h3>转换后的<code>userid</code></h3>
              *
              * @apiNote <code>user_type</code> 为 {@link UserType#INTERNET_COMPANY},{@link UserType#UPSTREAM},{@link UserType#INTERNET_COMPANY_CIRCLE}, 时返回
              */

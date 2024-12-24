@@ -22,7 +22,7 @@ import java.util.Objects;
  */
 public class HttpUtil {
     /**
-     * <h2>发起Post请求</h2>
+     * <h3>发起Post请求</h3>
      *
      * @param url  URL
      * @param json Json
@@ -41,13 +41,12 @@ public class HttpUtil {
     }
 
     /**
-     * <h2>发起Get请求</h2>
+     * <h3>发起Get请求</h3>
      *
      * @param url URL
      * @return Response
      */
     public static String get(String url) {
-        System.out.println(url);
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
             HttpGet httpGet = new HttpGet(url);
             return request(httpClient.execute(httpGet));
@@ -57,7 +56,7 @@ public class HttpUtil {
     }
 
     /**
-     * <h2>请求</h2>
+     * <h3>请求</h3>
      *
      * @param execute CloseableHttpResponse
      * @return Response

@@ -22,7 +22,7 @@ import java.util.List;
  */
 public class GetAppRequest extends AbstractWeComRequest<GetAppRequest.Response, GetAppRequest> {
     /**
-     * <h2>应用id</h2>
+     * <h3>应用id</h3>
      */
     @JsonProperty(WeComAlias.AGENTID)
     private String agentId;
@@ -48,60 +48,60 @@ public class GetAppRequest extends AbstractWeComRequest<GetAppRequest.Response, 
 
     public static class Response extends WeComResponse<Response> {
         /**
-         * <h2>企业应用id</h2>
+         * <h3>企业应用id</h3>
          */
         @JsonProperty(WeComAlias.AGENTID)
         private Integer agentId;
 
         /**
-         * <h2>企业应用名称</h2>
+         * <h3>企业应用名称</h3>
          */
         private String name;
 
         /**
-         * <h2>企业应用方形头像</h2>
+         * <h3>企业应用方形头像</h3>
          */
         @JsonProperty(WeComAlias.SQUARE_LOGO_URL)
         private String squareLogoUrl;
 
         /**
-         * <h2>企业应用详情</h2>
+         * <h3>企业应用详情</h3>
          */
         private String description;
 
         /**
-         * <h2>应用可见范围（人员）</h2>
+         * <h3>应用可见范围（人员）</h3>
          */
         @JsonProperty(WeComAlias.ALLOW_USERINFO)
         private AllowUserInfo allowUserinfoList;
 
         /**
-         * <h2>应用可见范围（部门）</h2>
+         * <h3>应用可见范围（部门）</h3>
          */
         @JsonProperty(WeComAlias.ALLOW_PARTY)
         private AllowParty allowParty;
 
         /**
-         * <h2>应用可见范围（标签）</h2>
+         * <h3>应用可见范围（标签）</h3>
          */
         @JsonProperty(WeComAlias.ALLOW_TAG)
         private AllowTag allowTag;
 
         /**
-         * <h2>应用是否被停用</h2>
+         * <h3>应用是否被停用</h3>
          */
         @JsonSerialize(using = BooleanToZeroOne.class)
         @JsonDeserialize(using = ZeroOneToBoolean.class)
         private Boolean close;
 
         /**
-         * <h2>应用可信域名</h2>
+         * <h3>应用可信域名</h3>
          */
         @JsonProperty(WeComAlias.REDIRECT_DOMAIN)
         private String redirectDomain;
 
         /**
-         * <h2>是否打开地理位置上报</h2>
+         * <h3>是否打开地理位置上报</h3>
          */
         @JsonProperty(WeComAlias.REPORT_LOCATION_FLAG)
         @JsonSerialize(using = BooleanToZeroOne.class)
@@ -109,7 +109,7 @@ public class GetAppRequest extends AbstractWeComRequest<GetAppRequest.Response, 
         private Boolean reportLocationFlag;
 
         /**
-         * <h2>是否上报用户进入应用事件</h2>
+         * <h3>是否上报用户进入应用事件</h3>
          */
         @JsonSerialize(using = BooleanToZeroOne.class)
         @JsonDeserialize(using = ZeroOneToBoolean.class)
@@ -117,13 +117,13 @@ public class GetAppRequest extends AbstractWeComRequest<GetAppRequest.Response, 
         private Boolean isReportEnter;
 
         /**
-         * <h2>应用主页url</h2>
+         * <h3>应用主页url</h3>
          */
         @JsonProperty(WeComAlias.HOME_URL)
         private String homeUrl;
 
         /**
-         * <h2>代开发自建应用返回该字段</h2>
+         * <h3>代开发自建应用返回该字段</h3>
          *
          * @see WeComCustomizedPublishStatus
          */
@@ -236,7 +236,7 @@ public class GetAppRequest extends AbstractWeComRequest<GetAppRequest.Response, 
 
         public static class AllowUserInfo {
             /**
-             * <h2>成员id列表</h2>
+             * <h3>成员id列表</h3>
              */
             @JsonProperty(WeComAlias.USER)
             private List<User> userList;
@@ -251,7 +251,7 @@ public class GetAppRequest extends AbstractWeComRequest<GetAppRequest.Response, 
 
             public static class User {
                 /**
-                 * <h2>成员id</h2>
+                 * <h3>成员id</h3>
                  */
                 @JsonProperty(WeComAlias.USER_ID)
                 private String userId;
@@ -268,7 +268,7 @@ public class GetAppRequest extends AbstractWeComRequest<GetAppRequest.Response, 
 
         public static class AllowParty {
             /**
-             * <h2>部门id列表</h2>
+             * <h3>部门id列表</h3>
              */
             @JsonProperty(WeComAlias.PARTY_ID)
             private List<Integer> partyIdList;
@@ -284,7 +284,7 @@ public class GetAppRequest extends AbstractWeComRequest<GetAppRequest.Response, 
 
         public static class AllowTag {
             /**
-             * <h2>标签id列表</h2>
+             * <h3>标签id列表</h3>
              */
             @JsonProperty(WeComAlias.TAG_ID)
             private List<Integer> tagIdList;

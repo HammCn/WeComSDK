@@ -53,4 +53,5 @@ public class WeComAlias {
     public static final String IS_REPORT_ENTER = "isreportenter";
     public static final String HOME_URL = "home_url";
     public static final String CUSTOMIZED_PUBLISH_STATUS = "customized_publish_status";
+    public static final String DEPARTMENT_LEADER = "department_leader";
 }

@@ -14,19 +14,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class WeComResponse<T extends WeComResponse<T>> {
 
     /**
-     * <h2>错误代码</h2>
+     * <h3>错误代码</h3>
      */
     @JsonProperty(WeComAlias.ERROR_CODE)
     private Integer errorCode;
 
     /**
-     * <h2>错误信息</h2>
+     * <h3>错误信息</h3>
      */
     @JsonProperty(WeComAlias.ERROR_MESSAGE)
     private String errorMessage;
 
     /**
-     * <h2>是否成功</h2>
+     * <h3>是否成功</h3>
      *
      * @return boolean
      */

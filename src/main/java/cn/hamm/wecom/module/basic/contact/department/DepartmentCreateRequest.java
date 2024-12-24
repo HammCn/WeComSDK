@@ -7,7 +7,7 @@ import cn.hamm.wecom.common.enums.WeComApiMethod;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * <h1>DepartmentCreateRequest</h1>
+ * <h1>创建部门</h1>
  *
  * @author Hamm.cn
  * @see <a href="https://developer.work.weixin.qq.com/document/path/90205">创建部门</a>
@@ -16,14 +16,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class DepartmentCreateRequest extends AbstractWeComRequest<DepartmentCreateRequest.Response, DepartmentCreateRequest> {
 
     /**
-     * <h2>部门名称</h2>
+     * <h3>部门名称</h3>
      *
      * @apiNote 同一个层级的部门名称不能重复。长度限制为1~64个UTF-8字符，字符不能包括\:*?"<>｜
      */
     private String name;
 
     /**
-     * <h2>英文名称</h2>
+     * <h3>英文名称</h3>
      *
      * @apiNote 同一个层级的部门名称不能重复。需要在管理后台开启多语言支持才能生效。长度限制为1~64个字符，字符不能包括\:*?"<>｜
      */
@@ -31,20 +31,20 @@ public class DepartmentCreateRequest extends AbstractWeComRequest<DepartmentCrea
     private String nameEn;
 
     /**
-     * <h2>父部门id</h2>
+     * <h3>父部门id</h3>
      */
     @JsonProperty(WeComAlias.PARENT_ID)
     private Integer parentId;
 
     /**
-     * <h2>在父部门中的次序值</h2>
+     * <h3>在父部门中的次序值</h3>
      *
      * @apiNote order值大的排序靠前。有效的值范围是[0, 2^32)
      */
     private Integer order;
 
     /**
-     * <h2>部门id</h2>
+     * <h3>部门id</h3>
      *
      * @apiNote 指定时必须大于1。若不填该参数，将自动生成id
      */
@@ -107,7 +107,7 @@ public class DepartmentCreateRequest extends AbstractWeComRequest<DepartmentCrea
 
     public static class Response extends WeComResponse<Response> {
         /**
-         * <h2>创建的部门id</h2>
+         * <h3>创建的部门id</h3>
          */
         private Integer id;
 

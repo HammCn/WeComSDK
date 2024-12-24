@@ -18,19 +18,19 @@ import java.lang.reflect.Type;
 @SuppressWarnings("unchecked")
 public abstract class AbstractWeComRequest<RES extends WeComResponse<RES>, REQ extends AbstractWeComRequest<RES, REQ>> {
     /**
-     * <h2>AccessToken</h2>
+     * <h3>AccessToken</h3>
      */
     private String accessToken;
 
     /**
-     * <h2>API地址</h2>
+     * <h3>API地址</h3>
      *
      * @return API地址
      */
     public abstract String apiUrl();
 
     /**
-     * <h2>API方法</h2>
+     * <h3>API方法</h3>
      *
      * @return API方法
      */
@@ -39,7 +39,7 @@ public abstract class AbstractWeComRequest<RES extends WeComResponse<RES>, REQ e
     }
 
     /**
-     * <h2>发起API请求</h2>
+     * <h3>发起API请求</h3>
      *
      * @return 响应对象
      */
@@ -73,7 +73,7 @@ public abstract class AbstractWeComRequest<RES extends WeComResponse<RES>, REQ e
     }
 
     /**
-     * <h2>获取响应类</h2>
+     * <h3>获取响应类</h3>
      *
      * @return 类
      */
@@ -82,7 +82,7 @@ public abstract class AbstractWeComRequest<RES extends WeComResponse<RES>, REQ e
     }
 
     /**
-     * <h2>获取泛型类列表</h2>
+     * <h3>获取泛型类列表</h3>
      *
      * @return 泛型类列表
      */

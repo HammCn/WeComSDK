@@ -7,12 +7,12 @@ package cn.hamm.wecom.common.enums;
  */
 public enum WeComApiMethod {
     /**
-     * <h2>GET</h2>
+     * <h3>GET</h3>
      */
     GET,
 
     /**
-     * <h2>POST</h2>
+     * <h3>POST</h3>
      */
     POST
 }

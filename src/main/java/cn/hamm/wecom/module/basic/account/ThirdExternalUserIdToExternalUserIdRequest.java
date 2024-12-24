@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @SuppressWarnings("unused")
 public class ThirdExternalUserIdToExternalUserIdRequest extends AbstractWeComRequest<ThirdExternalUserIdToExternalUserIdRequest.Response, ThirdExternalUserIdToExternalUserIdRequest> {
     /**
-     * <h2>服务商主体的<code>external_userid</code></h2>
+     * <h3>服务商主体的<code>external_userid</code></h3>
      *
      * @apiNote 必须是<code>source_agentid</code>对应的应用所获取
      */
@@ -22,7 +22,7 @@ public class ThirdExternalUserIdToExternalUserIdRequest extends AbstractWeComReq
     private String externalUserId;
 
     /**
-     * <h2>企业授权的代开发自建应用或第三方应用的<code>agentid</code></h2>
+     * <h3>企业授权的代开发自建应用或第三方应用的<code>agentid</code></h3>
      */
     @JsonProperty(WeComAlias.SOURCE_AGENT_ID)
     private Integer sourceAgentId;
@@ -52,7 +52,7 @@ public class ThirdExternalUserIdToExternalUserIdRequest extends AbstractWeComReq
 
     public static class Response extends WeComResponse<Response> {
         /**
-         * <h2>企业主体的<code>external_userid</code></h2>
+         * <h3>企业主体的<code>external_userid</code></h3>
          */
         @JsonProperty(WeComAlias.EXTERNAL_USER_ID)
         private String externalUserId;

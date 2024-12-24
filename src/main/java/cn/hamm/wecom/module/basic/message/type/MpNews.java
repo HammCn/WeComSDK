@@ -14,29 +14,29 @@ public class MpNews extends ArticleList<MpNews, MpNews.Article> {
     public static class Article extends ArticleList.Article<Article> {
 
         /**
-         * <h2>缩略图ID</h2>
+         * <h3>缩略图ID</h3>
          */
         @JsonProperty(WeComAlias.THUMB_MEDIA_ID)
         private String thumbMediaId;
 
         /**
-         * <h2>作者名称</h2>
+         * <h3>作者名称</h3>
          */
         private String anchor;
 
         /**
-         * <h2>原文链接</h2>
+         * <h3>原文链接</h3>
          */
         @JsonProperty(WeComAlias.CONTENT_SOURCE_URL)
         private String contentSourceUrl;
 
         /**
-         * <h2>图文消息内容</h2>
+         * <h3>图文消息内容</h3>
          */
         private String content;
 
         /**
-         * <h2>摘要</h2>
+         * <h3>摘要</h3>
          */
         private String digest;
 
